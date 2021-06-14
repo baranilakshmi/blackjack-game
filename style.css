@@ -54,6 +54,7 @@ margin: 0;
 flex: 1;
 border: 1px solid black;
  text-align: center;
+ overflow: auto;
 
 
 }
@@ -64,6 +65,7 @@ margin: 0;
 flex: 1;
 border: 1px solid black;
 text-align: center;
+overflow: auto;
 }
 
 .buttons {
