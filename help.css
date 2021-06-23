@@ -1,0 +1,44 @@
+*{
+
+    box-sizing: border-box;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+   
+    background:rgb(26,210,12);
+    background: radial-gradient(circle, rgba(26,210,12,1) 0%, rgba(35,71,28,1) 100%);
+    color:white;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+h2 {
+    
+    color:rgb(37, 35, 35);
+
+}
+
+
+.good {
+    
+    color:rgb(37, 35, 35) ;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+a:link, a:visited, a:hover, a:active {
+
+    color:rgb(63,62,62);
+    text-decoration: none;
+    padding: 5px;
+    
+}
+

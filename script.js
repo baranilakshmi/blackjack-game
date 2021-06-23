@@ -39,7 +39,7 @@ if (blackjack['hitrole'] === false){
     scoreupdate(card, You);
     lastscore(You);
 
-    if (You['score'] > 32) {
+    if (You['score'] > 21) {
         await sleep(1000);
       blackjack['dealrole'] = false;
       blackjack['hitrole'] = true;
@@ -50,7 +50,7 @@ if (blackjack['hitrole'] === false){
 
 function showcard(card,activeplayer){
 
-if(activeplayer['score']+blackjack['cardsvalue'][card]<=32){
+if(activeplayer['score']+blackjack['cardsvalue'][card]<=21){
 
 let imageofcard = document.createElement('img');
 imageofcard.src = `./images/${card}.png`;
@@ -67,7 +67,7 @@ activeplayer['score'] += blackjack['cardsvalue'][card];
 
 function lastscore(activeplayer){
 
-if(activeplayer['score'] >32){
+if(activeplayer['score'] >21){
 
 document.querySelector(activeplayer['scorespan']).innerText = 'Bust';
 document.querySelector(activeplayer['scorespan']).style.color = 'red';
@@ -85,7 +85,7 @@ async function dealwork(){
 if(blackjack['dealrole'] === false){
 
 blackjack['hitrole'] = true; 
-while (Deal['score']<28){
+while (Deal['score']<=21){
     let card = randomcard();
     showcard(card, Deal);
     scoreupdate(card, Deal);
@@ -109,7 +109,7 @@ function winner(){
 
 let victor;
 
-if (You['score']<=32){
+if (You['score']<=21){
 if (You['score']>Deal['score'] || (Deal['score']<32)){
 victor = You;
 }
@@ -121,10 +121,10 @@ else if (You['score']=== Deal['score']){
     console.log('You Draw');
 }
 }
-else if (You['score']>32 && Deal['score'] <= 32){
+else if (You['score']>21 && Deal['score'] <= 21){
     victor = Deal;
 }
-else if (You['score']>32 && Deal['score']){
+else if (You['score']>21 && Deal['score']){
     console.log('You Draw');
 }
 return victor;
@@ -137,7 +137,7 @@ let message,color;
 if (victor === You){
 
 message = "You Won!";
-color = "darkGreen";
+color = "#193b10";
 cashSound.play();
 blackjack['wins'] ++
 document.getElementById('wins').innerText = blackjack['wins'];
@@ -191,3 +191,26 @@ document.querySelector(activeplayer['scorespan']).innerText = activeplayer['scor
 document.querySelector(activeplayer['scorespan']).style.color = 'white';
 
 }
+
+const triggercontrol = (event) => {
+
+let keycode = event.keycode;
+console.log(keycode);
+if (keycode == "72"){
+    hitwork();
+}
+else if (keycode = "68"){
+    endfun();
+}
+else if (keycode == "83"){
+    dealwork();
+}
+}
+
+ addEventListener('keydown',triggercontrol);
+
+// triggerBear = (event) => {
+//     const keyCode = event.keyCode;
+//     console.log(keyCode);
+// } 
+// document.addEventListener('keyup',triggerBear);
